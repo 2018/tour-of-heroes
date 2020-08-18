@@ -1,7 +1,0 @@
-<app-hero-list
-  [heroes]="heroes$ | async"
-  [loading]="isLoading$ | async"
-  [error]="error$ | async"
-  (create)="onAddHero($event)"
-  (remove)="onDeleteHero($event)"
-></app-hero-list>

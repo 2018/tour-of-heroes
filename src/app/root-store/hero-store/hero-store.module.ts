@@ -1,31 +1,20 @@
-
 import {NgModule} from '@angular/core';
-import {DefaultDataServiceConfig, EntityDataModule} from '@ngrx/data';
 import {StoreModule} from '@ngrx/store';
-import {entityConfig} from './hero-metadata';
 import {EffectsModule} from '@ngrx/effects';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {environment} from '../../../environments/environment';
+import {HeroEffects} from './hero.effects';
+import * as fromHeroes from './hero.reducers';
+import {HeroResolver} from '../../resolvers/hero.resolver';
+import {HeroesResolver} from '../../resolvers/heroes.resolver';
 
-const defaultDataServiceConfig: DefaultDataServiceConfig = {
-  root: `${environment.appApi.baseUrl}/api`,
-  timeout: 3000, // request timeout
-
-};
 @NgModule({
-  imports: [
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
-    EntityDataModule.forRoot(entityConfig),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
-    })
-  ],
-  providers: [
-    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }
-  ]
+    imports: [
+        StoreModule.forFeature(fromHeroes.HERO_FEATURE_KEY, fromHeroes.reducer),
+        EffectsModule.forFeature([HeroEffects]),
+    ],
+    providers: [
+        HeroResolver,
+        HeroesResolver
+    ]
 })
 export class HeroStoreModule {
-  constructor() { }
 }
