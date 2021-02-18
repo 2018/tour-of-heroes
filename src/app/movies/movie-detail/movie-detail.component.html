@@ -1,0 +1,9 @@
+<div *ngIf="(movie$ | async) as movie">
+  <h2>{{movie.name | uppercase}}</h2>
+  <div><span>Id: </span>{{movie.id}}</div>
+  <div>
+    <label>Name:
+      <input [ngModel]="movie.name" (ngModelChange)="onChangeName($event)" placeholder="name"/>
+    </label>
+  </div>
+</div>

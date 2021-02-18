@@ -1,0 +1,21 @@
+.heroes-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+
+  .hero-item {
+    margin: 20px;
+    vertical-align: top;
+    @media (min-width: 599px) {
+      width: 280px;
+    }
+    mat-card {
+      mat-card-content {
+        @media (min-width: 599px) {
+          min-height: 7.2em;
+        }
+      }
+    }
+  }
+}

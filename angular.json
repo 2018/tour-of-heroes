@@ -5,7 +5,11 @@
   "projects": {
     "tour-of-heroes": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -19,13 +23,50 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "sourceMap": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              {
+                "input": "src/styles.scss"
+              },
+              {
+                "input": "src/highlightjs/material-light.scss"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/pink-bluegrey.scss",
+                "bundleName": "assets/pink-bluegrey"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/deeppurple-amber.scss",
+                "bundleName": "assets/deeppurple-amber"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/indigo-pink.scss",
+                "bundleName": "assets/indigo-pink"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/purple-green.scss",
+                "bundleName": "assets/purple-green"
+              }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules", "src", "src/styles"]
+            },
             "scripts": [],
             "allowedCommonJsDependencies": [
               "lodash"
@@ -42,7 +83,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -51,8 +91,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "6kb"
                 }
               ]
             },
@@ -66,7 +111,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -75,8 +119,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ]
             }
@@ -107,12 +156,48 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              {
+                "input": "src/styles.scss"
+              },
+              {
+                "input": "src/highlightjs/material-light.scss"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/pink-bluegrey.scss",
+                "bundleName": "assets/pink-bluegrey"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/deeppurple-amber.scss",
+                "bundleName": "assets/deeppurple-amber"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/indigo-pink.scss",
+                "bundleName": "assets/indigo-pink"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/purple-green.scss",
+                "bundleName": "assets/purple-green"
+              }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules", "src", "src/styles"]
+            },
             "scripts": []
           }
         },

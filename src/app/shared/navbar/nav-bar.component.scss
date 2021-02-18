@@ -1,0 +1,35 @@
+.docs-navbar-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 16px;
+
+  > .mat-button {
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.angular-logo {
+  height: 26px;
+  margin: 0 4px 3px 0;
+  vertical-align: middle;
+}
+
+.docs-navbar-link {
+  text-decoration: inherit;
+  flex: 1;
+}
+
+app-theme-picker {
+  display: none;
+
+  @media (min-width: 328px) {
+    display: block;
+  }
+}

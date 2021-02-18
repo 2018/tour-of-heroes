@@ -1,5 +1,7 @@
-<h1>{{title}}</h1>
-<nav>
-    <a routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="main-container">
+  <app-navbar class="mat-elevation-z6"></app-navbar>
+  <main class="site-content">
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,19 @@
+.main-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  app-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .site-content {
+    flex: 1;
+    margin-top: 56px;
+    overflow-y: auto;
+  }
+}

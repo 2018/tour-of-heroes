@@ -1,0 +1,93 @@
+<div *ngIf="heroFormState$ | async as formState">
+  <form
+    novalidate
+    fxLayout="column"
+    class="hero-form"
+    [ngrxFormState]="formState"
+    (submit)="submit()">
+    <mat-form-field>
+      <mat-label>Hero name</mat-label>
+      <input
+        matInput
+        [ngrxFormControlState]="formState.controls.name">
+      <mat-error *ngIf="formState.errors._name?.required">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Hero full name</mat-label>
+      <input
+        matInput
+        [ngrxFormControlState]="formState.controls.full_name">
+      <mat-error *ngIf="formState.errors._full_name?.required">
+        Full name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Hero URL thumb</mat-label>
+      <input
+        matInput
+        [ngrxFormControlState]="formState.controls.thumb">
+      <mat-error *ngIf="formState.errors._thumb?.required">
+        Thumb is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Hero URL photo</mat-label>
+      <input
+        matInput
+        [ngrxFormControlState]="formState.controls.photo">
+      <mat-error *ngIf="formState.errors._photo?.required">
+        Photo is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Hero description</mat-label>
+      <input
+        matInput
+        [ngrxFormControlState]="formState.controls.description">
+      <mat-error *ngIf="formState.errors._description?.required">
+        Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Hero text</mat-label>
+      <input
+        matInput
+        [ngrxFormControlState]="formState.controls.text">
+    </mat-form-field>
+
+    <div class="buttons">
+      <div>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="formState.isInvalid
+          && formState.isSubmitted">
+          SUBMIT
+        </button>
+        <button
+          mat-raised-button
+          type="button"
+          [disabled]="formState.isPristine
+          && formState.isUntouched
+          && formState.isUnsubmitted"
+          (click)="reset()">
+          RESET
+        </button>
+      </div>
+    </div>
+  </form>
+
+<!--  <div *ngIf="(submittedValue$ | async) as submittedValue">-->
+<!--    The form was submitted with the following value:-->
+<!--    <br />-->
+<!--    <pre>{{ submittedValue | json }}</pre>-->
+<!--  </div>-->
+</div>

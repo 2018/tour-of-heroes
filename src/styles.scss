@@ -1,0 +1,8 @@
+@import './app-theme';
+@import './styles/general';
+
+// Include material core styles.
+@include mat-core();
+
+@include angular-material-theme($theme);
+@include material-docs-app-theme($theme);

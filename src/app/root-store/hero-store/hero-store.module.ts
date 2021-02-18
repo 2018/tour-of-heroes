@@ -7,14 +7,14 @@ import {HeroResolver} from '../../resolvers/hero.resolver';
 import {HeroesResolver} from '../../resolvers/heroes.resolver';
 
 @NgModule({
-    imports: [
-        StoreModule.forFeature(fromHeroes.HERO_FEATURE_KEY, fromHeroes.reducer),
-        EffectsModule.forFeature([HeroEffects]),
-    ],
-    providers: [
-        HeroResolver,
-        HeroesResolver
-    ]
+  imports: [
+    StoreModule.forFeature(fromHeroes.HERO_FEATURE_KEY, fromHeroes.reducer),
+    EffectsModule.forFeature([HeroEffects]),
+  ],
+  providers: [
+    HeroResolver,
+    HeroesResolver
+  ]
 })
 export class HeroStoreModule {
 }

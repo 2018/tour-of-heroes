@@ -1,0 +1,24 @@
+<div *ngIf="movies$ | async">
+  <h2>List of Movies</h2>
+
+  <div>
+    <label>Movie title:
+      <input #movieTitle/>
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="addMovie(movieTitle.value); movieTitle.value=''">
+      add
+    </button>
+  </div>
+
+  <ul class="movies">
+    <li *ngFor="let movie of (movies$ | async); let i = index;">
+      <a routerLink="{{movie.id}}">
+        <span class="badge">{{i}}</span> {{movie.name}}
+      </a>
+      <button class="delete" title="delete hero"
+              (click)="deleteMovie(movie)">x
+      </button>
+    </li>
+  </ul>
+</div>
